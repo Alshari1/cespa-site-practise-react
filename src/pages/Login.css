@@ -1,0 +1,89 @@
+ input:focus,
+ select:focus {
+     outline: none;
+     border-color: #1D9E75 !important;
+     box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.18);
+ }
+
+ .submit-btn {
+     transition: background .15s, transform .12s, box-shadow .15s;
+ }
+
+ .submit-btn:hover:not(:disabled) {
+     background-color: #1D9E75;
+     transform: translateY(-1px);
+     box-shadow: 0 6px 24px rgba(15, 110, 86, 0.28);
+ }
+
+ .submit-btn:active:not(:disabled) {
+     transform: scale(0.98);
+     box-shadow: none;
+ }
+
+ .social-btn {
+     transition: background .15s, border-color .15s, transform .12s;
+ }
+
+ .social-btn:hover {
+     transform: translateY(-1px);
+ }
+
+ .social-btn:active {
+     transform: scale(0.98);
+ }
+
+ .strength-bar {
+     transition: background 0.3s;
+ }
+
+ .fade-up {
+     animation: fadeUp 0.45s ease both;
+ }
+
+ @keyframes fadeUp {
+     from {
+         opacity: 0;
+         transform: translateY(14px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .delay-1 {
+     animation-delay: 0.05s;
+ }
+
+ .delay-2 {
+     animation-delay: 0.10s;
+ }
+
+ .delay-3 {
+     animation-delay: 0.15s;
+ }
+
+ .delay-4 {
+     animation-delay: 0.20s;
+ }
+
+ .delay-5 {
+     animation-delay: 0.25s;
+ }
+
+ .delay-6 {
+     animation-delay: 0.30s;
+ }
+
+ .delay-7 {
+     animation-delay: 0.35s;
+ }
+
+ .delay-8 {
+     animation-delay: 0.40s;
+ }
+
+ .delay-9 {
+     animation-delay: 0.45s;
+ }

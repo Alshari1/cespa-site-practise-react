@@ -1,0 +1,36 @@
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 0.5rem 0.75rem;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #4ade80;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 2px;
+  background: #4ade80;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 8px #4ade80;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav-link-active {
+  color: #155e4a;
+  font-weight: 600;
+}

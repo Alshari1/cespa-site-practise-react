@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@plugin 'daisyui' {
+  themes: light --default;
+}
+
+@theme {
+  --font-sans: 'Inter', 'Poppins', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-poppins: 'Poppins', system-ui, sans-serif;
+  --color-ink: #18201c;
+  --color-forest: #155e4a;
+  --color-mint: #dff3ea;
+  --color-gold: #c69342;
+  --color-clay: #d96c4b;
+  --color-paper: #fbfaf6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: #18201c;
+  background: #fbfaf6;
+  font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-pad {
+  padding: 5rem 1rem;
+}
+
+.container-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.marquee-track {
+  animation: marquee 24s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.font-preospe {
+    font-family: 'Preospe', sans-serif;
+}
+
+.font-cormorant {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-lato {
+    font-family: "Lato", sans-serif;
+}
+.font-playfair {
+    font-family: "Playfair Display", sans-serif;
+}
+
+.text-gold1{
+    color: #A87040;
+
+}
+.bg-gold1{
+background-color: #A87040;
+}
+.text-green1{
+ color:  #3D5050;;
+}
+.bg-green1{
+background-color: #3D5050;
+}
+.text-darkgreen1{
+color: #2C3535;
+}
+.bg-darkgreen1{
+background-color: #2C3535;
+}
+.text-cream1{
+color: #E8E0D0;
+}
+.bg-cream1{
+background-color: #E8E0D0;
+}
