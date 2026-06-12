@@ -1,8 +1,39 @@
-// import { Mail, MapPin, Phone } from 'lucide-react'
+import { useState } from 'react';
 import './contact.css';
-import './contact.js'
+import { sendMessage } from '../../../Hooks/Hooks.jsx';
 
 export default function Contacts() {
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState({ text: '', type: '' });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.subject || !form.message) {
+      setStatus({ text: 'All fields are required.', type: 'error' });
+      return;
+    }
+    setLoading(true);
+    setStatus({ text: 'Sending...', type: '' });
+    try {
+      const res = await sendMessage(form);
+      if (res.success) {
+        setStatus({ text: 'Message sent successfully!', type: 'success' });
+        setForm({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus({ text: res.message || 'Failed to send. Try again.', type: 'error' });
+      }
+    } catch {
+      setStatus({ text: 'Network error. Please try again.', type: 'error' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-[#333c3c]">
       <section className="max-w-7xl mx-auto px-10 py-24">
@@ -82,44 +113,46 @@ export default function Contacts() {
           </div>
 
           {/* RIGHT: Form */}
-          <div className="lg:col-span-3 fade-up">
+          <form className="lg:col-span-3 fade-up" onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-x-8 gap-y-8 mb-8">
               <div className="field-wrap">
                 <label htmlFor="name">Full Name</label>
-                <input className="field" id="name" type="text" placeholder="Your name" autoComplete="off" />
+                <input className="field" id="name" type="text" placeholder="Your name" autoComplete="off" value={form.name} onChange={handleChange} />
               </div>
 
               <div className="field-wrap">
                 <label htmlFor="email">Email Address</label>
-                <input className="field" id="email" type="email" placeholder="you@example.com" autoComplete="off" />
+                <input className="field" id="email" type="email" placeholder="you@example.com" autoComplete="off" value={form.email} onChange={handleChange} />
               </div>
 
               <div className="field-wrap col-span-2">
                 <label htmlFor="subject">Subject</label>
-                <input className="field" id="subject" type="text" placeholder="How can we help?" />
+                <input className="field" id="subject" type="text" placeholder="How can we help?" value={form.subject} onChange={handleChange} />
               </div>
 
               <div className="field-wrap col-span-2">
                 <label htmlFor="message">Message</label>
-                <textarea className="field" id="message" rows="5" placeholder="Write your message here..."></textarea>
+                <textarea className="field" id="message" rows="5" placeholder="Write your message here..." value={form.message} onChange={handleChange}></textarea>
               </div>
             </div>
 
             {/* Status line */}
-            <p id="statusLine" className="text-xs mb-4 h-4" style={{ color: '#999', letterSpacing: '0.08em', fontWeight: 300 }}></p>
+            <p id="statusLine" className="text-xs mb-4 h-4" style={{ color: status.type === 'error' ? '#e74c3c' : status.type === 'success' ? '#2ecc71' : '#999', letterSpacing: '0.08em', fontWeight: 300 }}>
+              {status.text}
+            </p>
 
             {/* Button */}
-            <button className="btn-main" id="sendBtn">
-              <div className="btn-progress" id="btnProgress" style={{ width: '0%' }}></div>
+            <button className="btn-main" id="sendBtn" type="submit" disabled={loading}>
+              <div className="btn-progress" id="btnProgress" style={{ width: loading ? '100%' : '0%' }}></div>
               <span id="btnIcon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="22" y1="2" x2="11" y2="13" />
                   <polygon points="22 2 15 22 11 13 2 9 22 2" />
                 </svg>
               </span>
-              <span id="btnText">Send Message</span>
+              <span id="btnText">{loading ? 'Sending...' : 'Send Message'}</span>
             </button>
-          </div>
+          </form>
         </div>
       </section>
     </div>

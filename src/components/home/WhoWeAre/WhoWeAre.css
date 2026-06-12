@@ -60,7 +60,7 @@
     padding: 5vh 3vw 5vh 2vw;
     /* border-right: 1px solid var(--line); */
     /* border: 2px solid red; */
-     /* TEMP  */
+    /* TEMP  */
 }
 
 .cards-stage {
@@ -252,6 +252,7 @@
     margin-bottom: 14px;
     border-radius: 1px;
 }
+
 /* ─── RIGHT PANEL ───────────────────────────────── */
 .right-panel {
     display: flex;
@@ -360,4 +361,57 @@
 
 .scroll-nudge.hidden {
     opacity: 0;
+}
+
+/* ─── RESPONSIVE: < 1024px ──────────────────────── */
+@media (max-width: 1023px) {
+    #outer {
+        height: auto !important;
+    }
+
+    #sticky {
+        position: relative;
+        height: auto;
+        overflow: visible;
+        grid-template-columns: 1fr;
+    }
+    #outer {
+    height: fit-content;
+}
+
+    .left-panel {
+        padding: 4vh 5vw;
+        margin-top:7vh ;
+    }
+
+    .right-panel {
+
+        padding: 6vh 5vw 6vh 4vw;
+
+    }
+
+    .cards-stage {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .s-card {
+        margin-left: 0;
+        width: 140px;
+        opacity: 1;
+        transform: none;
+    }
+
+    .t-block {
+        opacity: 1;
+        transform: none;
+    }
+
+    .cards-footer {
+        margin-top: 24px;
+        text-align: center;
+        opacity: 1;
+        transform: none;
+    }
 }

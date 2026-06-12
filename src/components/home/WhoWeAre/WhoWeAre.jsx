@@ -137,20 +137,20 @@ export default function AboutSection() {
         {/* RIGHT PANEL */}
         <div className="right-panel">
 
-          <div className="font-inter text-[12px] uppercase text-gold1 tracking-wide">
+          <div className="font-inter text-[11px] lg:text-[12px] uppercase text-gold1 tracking-wide">
             Who We Are
           </div>
 
-          <h2 className="font-cormorant text-black text-5xl my-6">
+          <h2 className="font-cormorant text-black text-3xl sm:text-4xl lg:text-5xl my-4 lg:my-6">
             A Community Built on<br />
             Engineering Excellence
           </h2>
 
           <div
-            className="t-block font-poppins border-l-2 border-[#A87040] ps-5 text-justify text-black mt-4"
+            className="t-block font-poppins border-l-2 border-[#A87040] ps-4 lg:ps-5 text-justify text-black mt-3 lg:mt-4"
             id="tb0"
           >
-            <div className="mb-2">Our Mission</div>
+            <div className="mb-1 lg:mb-2">Our Mission</div>
             <blockquote>
               <p>
                 We empower Civil Engineering students, industry pioneers, and young alumni with

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 function startMarquee(selector, speed = 1.2) {
     const parent = document.querySelector(selector);
@@ -27,6 +27,14 @@ function startMarquee(selector, speed = 1.2) {
     return () => cancelAnimationFrame(animationFrame);
 }
 
+const notices = [
+  { id: 1, text: '📢 Fresher Welcome 2026 — January 15' },
+  { id: 2, text: '🏗️ Civil Tech Fest registrations open' },
+  { id: 3, text: '📝 Workshop on Structural Analysis — Jan 20' },
+  { id: 4, text: '🎓 Mentorship program applications due Jan 25' },
+  { id: 5, text: '🔬 Research Symposium — Call for Papers' },
+]
+
 const Marquee = () => {
 
     useEffect(() => {
@@ -39,21 +47,14 @@ const Marquee = () => {
 
 
     return (
-        <div className="marquee-wrapper shadow-md bg-green1 text-cream1 overflow-hidden">
-            <div className="marquee flex gap-4 font-inter uppercase whitespace-nowrap space-x-4 ">
-                <span>Notice here.</span>
-                <span>Notice here.</span>
-                <span>Notice here.</span>
-                <span>Notice here.</span>
-                <span>Notice here.</span>
+        <div className="marquee-wrapper w-full overflow-hidden py-[15px] shadow-md bg-green1 text-cream1 flex items-center">
+            <div className="marquee inline-flex whitespace-nowrap will-change-transform gap-4 font-poppins text-sm">
+                {notices.map((n) => (
+                  <span key={n.id}>{n.text}</span>
+                ))}
             </div>
         </div>
     )
 };
 
 export default Marquee;
-
-
-//
-
-//  

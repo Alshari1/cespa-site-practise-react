@@ -1,0 +1,75 @@
+.anim-ready {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* --- direction offsets --- */
+.slide-from-top {
+    transform: translateY(-28px);
+}
+
+.slide-from-bottom {
+    transform: translateY(28px);
+}
+
+.slide-from-left {
+    transform: translateX(-28px);
+}
+
+.slide-from-right {
+    transform: translateX(28px);
+}
+
+.fade-in {
+    transform: none;
+}
+
+/* --- triggered (visible) state — JS adds this class --- */
+.anim-ready.animate {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* --- stagger delays --- */
+.delay-1 {
+    transition-delay: 0.10s;
+}
+
+.delay-2 {
+    transition-delay: 0.20s;
+}
+
+.delay-3 {
+    transition-delay: 0.35s;
+}
+
+.delay-4 {
+    transition-delay: 0.50s;
+}
+
+.delay-5 {
+    transition-delay: 0.65s;
+}
+
+.delay-6 {
+    transition-delay: 0.80s;
+}
+
+
+/* ============================================================
+       DIVIDER GROW ANIMATION
+       Used on the thin horizontal rule between the title and subtitle.
+       Reuse: add  "divider-anim"  to any  <hr>  or  <div>  that acts
+       as a horizontal line. It will expand from 0 → full width
+       once  "animate"  is also added.
+    ============================================================ */
+.divider-anim {
+    width: 0;
+    transition: width 0.7s ease 0.55s;
+    /* delay matches delay-4 */
+}
+
+.divider-anim.animate {
+    width: 2.5rem;
+    /* = w-10 = 40px */
+}

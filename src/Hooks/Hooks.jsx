@@ -34,3 +34,15 @@ export const useDeleteBlog = () => {
     },
   });
 };
+
+export const sendMessage = async (data) => {
+  const res = await fetch("http://localhost:5000/send-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  return res.json();
+};
